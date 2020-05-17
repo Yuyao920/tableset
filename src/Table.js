@@ -38,7 +38,6 @@ class TableList extends React.Component {
 
   getList = () => {
     axios.get('http://www.mocky.io/v2/5ea28891310000358f1ef182').then(res => {
-      console.log(res, 123)
       this.setState({ tabelDate: res.data.apis })
     })
   }
@@ -51,7 +50,7 @@ class TableList extends React.Component {
     } else {
       const searchDate = tabelDate.map(list => {
         if(list.tags.length) {
-          if (!list.tags.indexOf(e.target.value)) {
+          if (!list.tags.includes(e.target.value)) {
             return list
           }
         }
